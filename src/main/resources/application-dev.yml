@@ -1,0 +1,35 @@
+server:
+  port: 8888
+  address: 0.0.0.0
+  session:
+    timeout: 28800
+
+################################################# 数据库访问配置
+# 主数据源，默认的
+spring:
+  mvc:
+    static-path-pattern: /static/**
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.56.10:3306/imook?useUnicode=true&characterEncoding=utf8&autoReconnect=true
+    username: imook
+    password: tuna
+    druid:
+      initialSize: 2
+      minIdle: 2
+      maxActive: 30
+      WebStatFilter:
+        exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
+      StatViewServlet:
+        loginUsername: aexit
+        loginPassword: aexit
+  session:
+    store-type: none
+
+################################################## mybatis
+# 驼峰标志属性与数据库字段自动属性映射
+mybatis-plus:
+  configuration:
+    mapUnderscoreToCamelCase: true
+
