@@ -14,4 +14,8 @@ public class IndexController {
     public String index(){
         return "index";
     }
+    @RequestMapping(value = "/test1")
+    public String test1(){
+        return "test/test1";
+    }
 }
